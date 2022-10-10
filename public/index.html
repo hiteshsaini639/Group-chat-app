@@ -10,14 +10,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      .box {
-        padding: 8px 40px;
-      }
-      .form-control {
-        margin: 10px 0 25px;
-      }
-    </style>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
       integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
@@ -54,36 +46,28 @@
     <!-- right -->
     <section class="right">
       <div class="box">
-        <h1>Please Signup</h1>
+        <h1>Please Login</h1>
         <form>
-          <div class="form-control">
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name" required />
-          </div>
           <div class="form-control">
             <label for="email">Email</label>
             <input id="email" type="email" name="email" required />
           </div>
           <div class="form-control">
-            <label for="tel">Phone Number</label>
-            <input
-              id="tel"
-              type="tel"
-              name="phone"
-              pattern="[0-9]{10}"
-              required
-            />
-          </div>
-          <div class="form-control">
             <label for="password">Password</label>
             <input id="password" type="password" name="password" required />
           </div>
-          <button class="btn" type="submit">Signup</button>
+          <a href="./forgot-password.html">Forgot Password?</a>
+          <button class="btn" type="submit" style="margin-top: 10px">
+            Login
+          </button>
         </form>
-        <p class="text">Or have an account? <a href="./index.html">Login</a></p>
+        <p class="text">
+          Don't have an account?
+          <a href="./signup.html">Sign up for free<br /></a>
+        </p>
       </div>
     </section>
     <script src="scripts/toast.js"></script>
-    <script src="scripts/signup.js"></script>
+    <script src="scripts/login.js"></script>
   </body>
 </html>

@@ -33,7 +33,7 @@ body {
 .left::before {
   content: "";
   position: absolute;
-  background-color: rgb(31, 171, 137, 0.85);
+  background-color: rgba(23, 131, 104, 0.9);
   width: 100%;
   height: 100%;
   top: 0;
@@ -49,7 +49,7 @@ body {
 .heading p {
   text-align: center;
   margin: 0;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.1rem;
   font-size: 1rem;
 }
 
