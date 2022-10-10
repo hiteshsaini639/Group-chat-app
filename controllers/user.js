@@ -23,14 +23,16 @@ exports.postUser = (req, res, next) => {
   User.findOne({ where: { email: email } })
     .then((user) => {
       if (user) {
-        throw { type: "error", message: "User Already Exists!" };
+        throw { type: "error", message: "User Already Exists! Please Login." };
       } else return bcrypt.hash(password, saltRounds);
     })
     .then((hash) => {
       return User.create({ name, email, phone, password: hash });
     })
     .then(() => {
-      res.status(201).send({ type: "success", message: "Signup Successful." });
+      res
+        .status(201)
+        .send({ type: "success", message: "Successfully Signup." });
     })
     .catch((err) => {
       if (err.type === "error") {
