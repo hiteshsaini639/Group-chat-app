@@ -54,8 +54,14 @@
             <input id="email" type="email" name="email" required />
           </div>
           <div class="form-control">
-            <label for="phone">Phone Number</label>
-            <input id="phone" type="number" name="phone" required />
+            <label for="tel">Phone Number</label>
+            <input
+              id="tel"
+              type="tel"
+              name="phone"
+              pattern="[0-9]{10}"
+              required
+            />
           </div>
           <div class="form-control">
             <label for="password">Password</label>

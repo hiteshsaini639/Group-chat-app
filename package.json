@@ -1,0 +1,27 @@
+{
+  "name": "group-chat-app",
+  "version": "1.0.0",
+  "description": "Group chat app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiteshsaini639/Group-chat-app.git"
+  },
+  "author": "Hitesh kumar saini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiteshsaini639/Group-chat-app/issues"
+  },
+  "homepage": "https://github.com/hiteshsaini639/Group-chat-app#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.24.0"
+  }
+}
