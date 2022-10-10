@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  display: flex;
+  margin: 0;
+  background-color: rgb(242, 255, 248);
+}
+
+.left {
+  background-image: url("../images/group-people-chatting-each-other-using-phone_74855-10709.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50vw;
+  height: 100vh;
+  position: relative;
+  font-family: "Nunito Sans", sans-serif;
+  color: white;
+  z-index: -2;
+  font-size: clamp(1rem, 10vw, 2.25rem);
+}
+
+.left::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(31, 171, 137, 0.85);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.heading h1 {
+  margin: 0;
+  text-align: left;
+}
+
+.heading p {
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.25rem;
+  font-size: 1rem;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* right */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  height: 100vh;
+}
+
+.box {
+  background-color: rgb(255, 255, 255);
+  color: rgb(16, 85, 68);
+  padding: 15px 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 5px rgb(31, 171, 137, 0.3);
+}
+
+.box h1 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.box a {
+  text-decoration: none;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: rgb(31, 171, 137);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background-color: rgb(24, 148, 117);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 15px;
+}
+
+.form-control {
+  margin: 20px 0 30px;
+  width: 300px;
+}
+
+.form-control input {
+  background-color: transparent;
+  color: rgb(10, 97, 76);
+  border: 0;
+  border-bottom: 2px rgb(31, 171, 137, 0.3) solid;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgb(215, 251, 232) inset !important;
+}
+
+/* toast notification */
+.toast {
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+  z-index: 5;
+}
+
+.toast.active {
+  transform: translateX(0%);
+}
+
+.toast .toast-content {
+  display: flex;
+  align-items: center;
+}
+
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #666666;
+}
+
+.message .text.text-1 {
+  font-weight: 600;
+  color: #333;
+}
+
+@media (max-width: 770px) {
+  body {
+    overflow: auto;
+    flex-wrap: wrap;
+  }
+  .left {
+    width: 100vh;
+    min-width: 380px;
+    height: 30vh;
+  }
+  .right {
+    width: 100vh;
+    height: 70vh;
+  }
+}
