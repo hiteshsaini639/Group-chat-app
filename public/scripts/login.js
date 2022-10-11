@@ -10,14 +10,25 @@ form.addEventListener("submit", (e) => {
     .then((response) => {
       if (response.status === 200) {
         localStorage.setItem("sessionToken", response.data);
-        console.log(response.data);
+        axios.post(
+          "http://localhost:3000/msg/send",
+          {
+            msg: "Joined",
+          },
+          {
+            headers: {
+              Authorization: response.data,
+            },
+          }
+        );
+        window.location.href = "./chat.html";
         // notify(response.data);
       } else {
         throw { response: response };
       }
     })
     .catch((err) => {
-      notify(err.response.data);
       console.log(err);
+      notify(err.response.data);
     });
 });
