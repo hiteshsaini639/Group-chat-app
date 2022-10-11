@@ -1,7 +1,11 @@
 const chat = document.getElementById("chat");
 const msgForm = document.getElementById("msg-form");
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", loadMessage);
+
+setInterval(loadMessage, 1000);
+
+function loadMessage() {
   const token = localStorage.getItem("sessionToken");
   axios
     .get("http://localhost:3000/msg/get", {
@@ -10,6 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     })
     .then((response) => {
+      chat.innerText = "";
       response.data.msgs.forEach((msg) => {
         if (msg.sender === response.data.user) {
           showMsg(msg, "You", "right-msg");
@@ -22,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
       console.log(err);
       notify(err.response.data);
     });
-});
+}
 
 msgForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -50,12 +55,18 @@ msgForm.addEventListener("submit", (e) => {
 });
 
 function showMsg(msg, user, side) {
-  const date = new Date(msg.createdAt);
+  const options = {
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  const time = new Intl.DateTimeFormat("en-IN", options).format(
+    new Date(msg.createdAt)
+  );
   const textNode = `<div class="msg ${side}">
     <div class="msg-bubble">
       <div class="msg-info">
         <div class="msg-info-name">${user}</div>
-        <div class="msg-info-time">${date.getHours()}:${date.getMinutes()}</div>
+        <div class="msg-info-time">${time}</div>
       </div>
 
       <div class="msg-text">${msg.message}</div>
