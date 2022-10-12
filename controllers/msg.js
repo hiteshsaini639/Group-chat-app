@@ -1,4 +1,6 @@
+const { where } = require("sequelize");
 const Message = require("../models/msg");
+const { Op } = require("sequelize");
 
 exports.postMsg = (req, res, next) => {
   req.user
@@ -13,7 +15,14 @@ exports.postMsg = (req, res, next) => {
 };
 
 exports.getMsg = (req, res, next) => {
-  Message.findAll()
+  const lastMsg = +req.query.lastMsg;
+  Message.findAll({
+    where: {
+      id: {
+        [Op.gt]: lastMsg,
+      },
+    },
+  })
     .then((msgs) => {
       res.status(200).send({ msgs: msgs, user: req.user.name });
     })

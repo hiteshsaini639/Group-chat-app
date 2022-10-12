@@ -1,21 +1,38 @@
 const chat = document.getElementById("chat");
 const msgForm = document.getElementById("msg-form");
 
-window.addEventListener("DOMContentLoaded", loadMessage);
+window.addEventListener("DOMContentLoaded", loadMessageLocal);
 
-setInterval(loadMessage, 1000);
+// function loadMessageLocal() {
+//   setInterval(() => {
+//     const msgs = JSON.parse(localStorage.getItem("msgs"));
+//     if (msgs === null) {
+//       loadMessage(0);
+//     } else {
+//       loadMessage(msgs[msgs.length - 1].id);
+//     }
+//   }, 1000);
+// }
 
-function loadMessage() {
+function loadMessage(lastMsg) {
   const token = localStorage.getItem("sessionToken");
   axios
-    .get("http://localhost:3000/msg/get", {
+    .get(`http://localhost:3000/msg/get?lastMsg=${lastMsg}`, {
       headers: {
         Authorization: token,
       },
     })
     .then((response) => {
       chat.innerText = "";
-      response.data.msgs.forEach((msg) => {
+      const msgs = JSON.parse(localStorage.getItem("msgs"));
+      let newMsg;
+      if (msgs === null) {
+        newMsg = response.data.msgs;
+      } else {
+        newMsg = [...msgs, ...response.data.msgs];
+      }
+      localStorage.setItem("msgs", JSON.stringify(newMsg));
+      newMsg.forEach((msg) => {
         if (msg.sender === response.data.user) {
           showMsg(msg, "You", "right-msg");
         } else {
