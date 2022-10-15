@@ -18,11 +18,68 @@
     ></script>
   </head>
   <body>
-    <section class="msger">
+    <!-- toast notification -->
+    <section class="toast" id="toast">
+      <div class="toast-content" id="toast-content">
+        <i
+          class="fa fa-check-circle fa-2x"
+          aria-hidden="true"
+          style="color: green"
+        ></i>
+        <div class="message">
+          <span class="text text-1">Success</span>
+          <span class="text text-2">Your changes has been saved</span>
+        </div>
+      </div>
+    </section>
+    <!-- group -->
+    <section class="msger group" id="group-section">
+      <header class="msger-header">
+        <form class="msger-inputarea" id="group-form">
+          <input
+            type="text"
+            class="msger-input"
+            placeholder="Create group..."
+            name="group"
+          />
+          <button type="submit" class="group-send-btn">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </form>
+      </header>
+      <main class="msger-chat" id="group">
+        <div class="group-name" id="group-name-btn">Group 1</div>
+      </main>
+    </section>
+    <!-- user -->
+    <section class="msger group" id="user-section" style="display: none">
+      <header class="msger-header">
+        <button type="submit" class="group-send-btn" id="back-btn">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <form class="msger-inputarea" id="user-form">
+          <input
+            type="email"
+            class="msger-input"
+            placeholder="Add user by email..."
+            name="user"
+          />
+          <button type="submit" class="group-send-btn" id="">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </form>
+      </header>
+      <main class="msger-chat" id="users">
+        <div class="group-name">name 1</div>
+      </main>
+    </section>
+    <!-- chat -->
+    <section class="msger" id="msg-section" style="display: none">
       <header class="msger-header">
         <div class="msger-header-title">
           <i class="fa fa-comments-o" aria-hidden="true"></i> Group Chat
         </div>
+        <button id="logout">Logout</button>
       </header>
       <main class="msger-chat" id="chat">
         <div class="msg left-msg">
@@ -55,7 +112,7 @@
           placeholder="Enter your message..."
           name="msg"
         />
-        <button type="submit" class="msger-send-btn">
+        <button type="submit" class="msger-send-btn" id="">
           <i class="fa fa-paper-plane-o fa-lg" aria-hidden="true"></i>
         </button>
       </form>

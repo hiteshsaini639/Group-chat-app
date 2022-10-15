@@ -32,13 +32,17 @@ body {
   flex-flow: column wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
   margin: 25px 10px;
   height: calc(100% - 50px);
   border: var(--border);
   border-radius: 5px;
   background: var(--msger-bg);
   box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.group {
+  max-width: 300px;
 }
 
 .msger-header {
@@ -48,6 +52,17 @@ body {
   border-bottom: var(--border);
   background: #eee;
   color: #666;
+}
+
+.group header form input {
+  width: 80%;
+}
+
+.group-name {
+  background-color: #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .msger-chat {
@@ -141,7 +156,8 @@ body {
   outline: none;
 }
 
-.msger-send-btn {
+.msger-send-btn,
+.group-send-btn {
   margin-left: 10px;
   background: rgb(0, 196, 65);
   color: #fff;
@@ -149,10 +165,69 @@ body {
   transition: background 0.23s;
 }
 
+.group-send-btn {
+  background: rgb(0, 46, 196);
+  width: 40px;
+  padding: 0;
+}
+
 .msger-send-btn:hover {
   background: rgb(0, 180, 50);
 }
 
-.msger-send-btn:active {
+.msger-send-btn:active,
+.group-send-btn:active {
   transform: scale(0.98);
+}
+
+/* toast notification */
+.toast {
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+  z-index: 5;
+}
+
+.toast.active {
+  transform: translateX(0%);
+}
+
+.toast .toast-content {
+  display: flex;
+  align-items: center;
+}
+
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #666666;
+}
+
+.message .text.text-1 {
+  font-weight: 600;
+  color: #333;
+}
+
+#back-btn {
+  height: 35px;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#logout {
+  padding: 3px;
+  cursor: pointer;
 }

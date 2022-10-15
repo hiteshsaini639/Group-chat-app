@@ -1,10 +1,16 @@
-const { where } = require("sequelize");
 const Message = require("../models/msg");
 const { Op } = require("sequelize");
+const Group = require("../models/group");
 
 exports.postMsg = (req, res, next) => {
-  req.user
-    .createMessage({ message: req.body.msg, sender: req.user.name })
+  const groupId = req.params.groupId;
+  Group.findByPk(groupId)
+    .then((group) => {
+      return group.createMessage({
+        message: req.body.msg,
+        sender: req.user.name,
+      });
+    })
     .then((message) => {
       res.status(200).send(message);
     })

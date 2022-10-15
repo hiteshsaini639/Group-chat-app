@@ -6,7 +6,7 @@ const authenticateMiddleware = require("../middlerwares/auth");
 const router = express.Router();
 
 router.post(
-  "/send",
+  "/send/:groupId",
   authenticateMiddleware.authenticate,
   msgController.postMsg
 );
